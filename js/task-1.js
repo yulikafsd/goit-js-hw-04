@@ -1,11 +1,17 @@
 'use strict';
 
 function isEnoughCapacity(products, containerSize) {
-    let waresQuantity = 0;
-    Object.values(products).forEach(value => {
-        waresQuantity += value;
-    });
-    return waresQuantity <= containerSize;
+    const total = Object.values(products).reduce(
+        (acc, value) => acc + value,
+        0
+    );
+    return total <= containerSize;
+
+    // let waresQuantity = 0;
+    // Object.values(products).forEach(value => {
+    //     waresQuantity += value;
+    // });
+    // return waresQuantity <= containerSize;
 }
 
 console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
